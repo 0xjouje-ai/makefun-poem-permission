@@ -11,4 +11,8 @@ and said yes.
 `;
 
 mkdirSync("/output", { recursive: true });
+const chars = [...POEM].length;
+if (chars < 1 || chars > 280 || !POEM.trim()) {
+  throw new Error(`entry must be 1–280 characters, got ${chars}`);
+}
 writeFileSync("/output/entry.txt", POEM, "utf8");
